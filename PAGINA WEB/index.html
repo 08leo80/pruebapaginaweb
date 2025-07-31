@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SegurosPro - Protección Integral para tu Familia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>SegurosPro</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#beneficios" class="nav-link">Beneficios</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+            <div class="nav-cta">
+                <button class="btn btn-primary">Cotizar Ahora</button>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Protege lo que más <span class="text-accent">importa</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Obtén la mejor cobertura de seguros para tu familia, negocio y patrimonio. 
+                    Más de 10,000 clientes confían en nosotros.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i>
+                        Llamar Ahora
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Clientes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Satisfacción</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Soporte</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <div class="card-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cotización Rápida</h3>
+                    </div>
+                    <form class="quote-form">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Tu nombre completo">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" placeholder="(123) 456-7890">
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de Seguro</label>
+                            <select>
+                                <option>Auto</option>
+                                <option>Hogar</option>
+                                <option>Vida</option>
+                                <option>Negocio</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Obtener Cotización
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Cobertura integral para todas tus necesidades</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Seguro de Auto</h3>
+                    <p>Protección completa para tu vehículo con las mejores coberturas del mercado.</p>
+                                         <ul class="service-features">
+                         <li><i class="fas fa-check"></i> Cobertura de colisión</li>
+                         <li><i class="fas fa-check"></i> Responsabilidad civil</li>
+                         <li><i class="fas fa-check"></i> Asistencia vial 24/7</li>
+                     </ul>
+                     <button class="btn btn-outline" onclick="scrollToSection('seguro-auto')">Más Info</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Seguro de Hogar</h3>
+                    <p>Protege tu casa y pertenencias contra robos, incendios y desastres naturales.</p>
+                                         <ul class="service-features">
+                         <li><i class="fas fa-check"></i> Cobertura de contenido</li>
+                         <li><i class="fas fa-check"></i> Responsabilidad civil</li>
+                         <li><i class="fas fa-check"></i> Daños por agua</li>
+                     </ul>
+                     <button class="btn btn-outline" onclick="scrollToSection('seguro-hogar')">Más Info</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Seguro de Vida</h3>
+                    <p>Garantiza el futuro financiero de tu familia con nuestra cobertura de vida.</p>
+                                         <ul class="service-features">
+                         <li><i class="fas fa-check"></i> Cobertura por muerte</li>
+                         <li><i class="fas fa-check"></i> Beneficios por invalidez</li>
+                         <li><i class="fas fa-check"></i> Ahorro programado</li>
+                     </ul>
+                     <button class="btn btn-outline" onclick="scrollToSection('seguro-vida')">Más Info</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Seguro Empresarial</h3>
+                    <p>Protege tu negocio con coberturas especializadas para empresas.</p>
+                                         <ul class="service-features">
+                         <li><i class="fas fa-check"></i> Responsabilidad profesional</li>
+                         <li><i class="fas fa-check"></i> Cobertura de equipos</li>
+                         <li><i class="fas fa-check"></i> Interrupción de negocio</li>
+                     </ul>
+                     <button class="btn btn-outline" onclick="scrollToSection('seguro-empresarial')">Más Info</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h2 class="section-title">¿Por qué elegirnos?</h2>
+                    <p class="section-subtitle">Más de 20 años de experiencia protegiendo familias mexicanas</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Precios Competitivos</h3>
+                                <p>Obtén las mejores tarifas del mercado sin comprometer la calidad de la cobertura.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Proceso Rápido</h3>
+                                <p>Cotiza, contrata y obtén tu póliza en menos de 24 horas.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Soporte 24/7</h3>
+                                <p>Nuestro equipo está disponible las 24 horas para atenderte.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Cobertura Completa</h3>
+                                <p>Protección integral que cubre todos los riesgos importantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="benefits-image">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"SegurosPro me ayudó a encontrar la mejor cobertura para mi familia. El proceso fue muy fácil y rápido."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50" alt="Cliente" class="author-avatar">
+                            <div class="author-info">
+                                <h4>María González</h4>
+                                <span>Cliente desde 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tipos de Seguros Section -->
+    <section id="tipos-seguros" class="insurance-types">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tipos de Seguros</h2>
+                <p class="section-subtitle">Conoce en detalle cada tipo de cobertura y elige la que mejor se adapte a tus necesidades</p>
+            </div>
+            
+            <div class="insurance-types-grid">
+                <div class="insurance-type-card" id="seguro-auto">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Seguro de Auto</h3>
+                    </div>
+                    <div class="type-content">
+                        <p class="type-description">
+                            Protege tu vehículo y tu patrimonio con nuestra cobertura integral de auto. 
+                            Incluye protección contra accidentes, robo, daños naturales y responsabilidad civil.
+                        </p>
+                        <div class="type-features">
+                            <h4>¿Qué cubre?</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Daños por colisión y vuelco</li>
+                                <li><i class="fas fa-check"></i> Robo total y parcial</li>
+                                <li><i class="fas fa-check"></i> Responsabilidad civil a terceros</li>
+                                <li><i class="fas fa-check"></i> Gastos médicos de ocupantes</li>
+                                <li><i class="fas fa-check"></i> Asistencia vial 24/7</li>
+                                <li><i class="fas fa-check"></i> Defensa legal y fianzas</li>
+                            </ul>
+                        </div>
+                        <div class="type-benefits">
+                            <h4>Beneficios adicionales</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Descuentos por buen conductor</li>
+                                <li><i class="fas fa-star"></i> Cobertura de auto sustituto</li>
+                                <li><i class="fas fa-star"></i> Protección de equipaje</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insurance-type-card" id="seguro-hogar">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Seguro de Hogar</h3>
+                    </div>
+                    <div class="type-content">
+                        <p class="type-description">
+                            Tu hogar es tu refugio más importante. Protégelo contra robos, incendios, 
+                            desastres naturales y otros riesgos que puedan afectar tu tranquilidad.
+                        </p>
+                        <div class="type-features">
+                            <h4>¿Qué cubre?</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Daños a la estructura de la casa</li>
+                                <li><i class="fas fa-check"></i> Robo y hurto de pertenencias</li>
+                                <li><i class="fas fa-check"></i> Incendio y explosión</li>
+                                <li><i class="fas fa-check"></i> Daños por agua y humedad</li>
+                                <li><i class="fas fa-check"></i> Responsabilidad civil familiar</li>
+                                <li><i class="fas fa-check"></i> Desastres naturales</li>
+                            </ul>
+                        </div>
+                        <div class="type-benefits">
+                            <h4>Beneficios adicionales</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Cobertura de joyas y arte</li>
+                                <li><i class="fas fa-star"></i> Alojamiento temporal</li>
+                                <li><i class="fas fa-star"></i> Servicios de emergencia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insurance-type-card" id="seguro-vida">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Seguro de Vida</h3>
+                    </div>
+                    <div class="type-content">
+                        <p class="type-description">
+                            Garantiza el futuro financiero de tu familia. Nuestro seguro de vida 
+                            proporciona protección económica en caso de fallecimiento o invalidez.
+                        </p>
+                        <div class="type-features">
+                            <h4>¿Qué cubre?</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Indemnización por fallecimiento</li>
+                                <li><i class="fas fa-check"></i> Beneficios por invalidez total</li>
+                                <li><i class="fas fa-check"></i> Cobertura de enfermedades graves</li>
+                                <li><i class="fas fa-check"></i> Ahorro programado</li>
+                                <li><i class="fas fa-check"></i> Protección de ingresos</li>
+                                <li><i class="fas fa-check"></i> Beneficios por accidentes</li>
+                            </ul>
+                        </div>
+                        <div class="type-benefits">
+                            <h4>Beneficios adicionales</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Flexibilidad en primas</li>
+                                <li><i class="fas fa-star"></i> Cobertura familiar</li>
+                                <li><i class="fas fa-star"></i> Asesoría financiera</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insurance-type-card" id="seguro-empresarial">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Seguro Empresarial</h3>
+                    </div>
+                    <div class="type-content">
+                        <p class="type-description">
+                            Protege tu negocio con coberturas especializadas que incluyen responsabilidad 
+                            profesional, equipos, interrupción de negocio y más.
+                        </p>
+                        <div class="type-features">
+                            <h4>¿Qué cubre?</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Responsabilidad civil profesional</li>
+                                <li><i class="fas fa-check"></i> Daños a equipos y maquinaria</li>
+                                <li><i class="fas fa-check"></i> Interrupción de negocio</li>
+                                <li><i class="fas fa-check"></i> Ciber riesgos</li>
+                                <li><i class="fas fa-check"></i> Fidelidad de empleados</li>
+                                <li><i class="fas fa-check"></i> Transporte de mercancías</li>
+                            </ul>
+                        </div>
+                        <div class="type-benefits">
+                            <h4>Beneficios adicionales</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Asesoría legal especializada</li>
+                                <li><i class="fas fa-star"></i> Cobertura de directivos</li>
+                                <li><i class="fas fa-star"></i> Gestión de riesgos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para proteger tu futuro?</h2>
+                <p>Obtén tu cotización gratuita en menos de 2 minutos</p>
+                <div class="cta-actions">
+                    <button class="btn btn-primary btn-large">
+                        <i class="fas fa-calculator"></i>
+                        Cotizar Ahora
+                    </button>
+                    <button class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i>
+                        Llamar al 800-123-4567
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SegurosPro</span>
+                    </div>
+                    <p>Protegemos tu futuro con las mejores coberturas y el mejor servicio.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#">Seguro de Auto</a></li>
+                        <li><a href="#">Seguro de Hogar</a></li>
+                        <li><a href="#">Seguro de Vida</a></li>
+                        <li><a href="#">Seguro Empresarial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Nuestro Equipo</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="#">Noticias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 800-123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@segurospro.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Insurgentes 123, CDMX</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SegurosPro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge" id="chatBadge">0</span>
+        </div>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>SegurosPro Chat</h4>
+                        <span class="chat-status" id="chatStatus">En línea</span>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>¡Hola! Soy tu asistente virtual de SegurosPro. ¿En qué puedo ayudarte hoy?</p>
+                        <span class="message-time">Ahora</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <div class="chat-quick-actions" id="chatQuickActions">
+                    <button class="quick-action" data-action="cotizar">📋 Cotizar Seguro</button>
+                    <button class="quick-action" data-action="info">ℹ️ Información</button>
+                    <button class="quick-action" data-action="contacto">📞 Contacto</button>
+                </div>
+                
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." maxlength="500">
+                    <button class="chat-send" id="chatSend">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
