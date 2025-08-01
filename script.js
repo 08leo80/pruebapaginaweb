@@ -566,7 +566,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configuración del chat
     const chatConfig = {
-        webhookUrl: 'https://hook.us2.make.com/8fzeeegnvodps7mihtkrct812gmplg14', // Webhook de Make configurado
+        webhookUrl: 'https://hook.us2.make.com/1wui6r6t9svfnmotkq4544enu466r7uh', // Webhook de Make configurado
         sessionId: generateSessionId(),
         isOpen: false,
         messageCount: 0,

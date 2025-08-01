@@ -5,17 +5,16 @@ const MAKE_RESPONSE_CONFIG = {
     // Configuración del endpoint de respuesta
     responseEndpoint: {
         // URL donde Make puede enviar respuestas
-        url: 'https://tu-dominio.vercel.app/api/chat-response',
+        url: 'https://pruebapaginaweb.vercel.app/api/webhook-response',
         
         // Métodos de respuesta disponibles
         methods: {
             // 1. Webhook directo (recomendado)
             webhook: {
-                url: 'https://tu-dominio.vercel.app/api/webhook-response',
+                url: 'https://pruebapaginaweb.vercel.app/api/webhook-response',
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer tu-token-secreto'
+                    'Content-Type': 'application/json'
                 }
             },
             
@@ -28,7 +27,7 @@ const MAKE_RESPONSE_CONFIG = {
             // 3. Polling (para casos especiales)
             polling: {
                 interval: 5000, // 5 segundos
-                endpoint: 'https://tu-dominio.vercel.app/api/check-response'
+                endpoint: 'https://pruebapaginaweb.vercel.app/api/check-response'
             }
         }
     },
@@ -71,11 +70,10 @@ const MAKE_RESPONSE_CONFIG = {
         // En Make, después del módulo de procesamiento:
         
         // 1. Crear módulo "HTTP" para enviar respuesta
-        URL: https://tu-dominio.vercel.app/api/webhook-response
+        URL: https://pruebapaginaweb.vercel.app/api/webhook-response
         Method: POST
         Headers: 
           Content-Type: application/json
-          Authorization: Bearer tu-token-secreto
         
         Body:
         {
@@ -122,7 +120,7 @@ const MAKE_RESPONSE_CONFIG = {
         
         // Dominios permitidos para CORS
         allowedOrigins: [
-            'https://tu-dominio.vercel.app',
+            'https://pruebapaginaweb.vercel.app',
             'https://hook.us2.make.com'
         ],
         
