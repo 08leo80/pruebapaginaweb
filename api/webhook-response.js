@@ -18,10 +18,17 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Método no permitido' });
     }
 
-    // Verificar token de autenticación
+    // Verificar token de autenticación (usando variable de entorno WEBHOOK_TOKEN)
     const authHeader = req.headers.authorization;
-    const expectedToken = 'Bearer segurospro_webhook_token_2024';
-    
+    const envToken = process.env.WEBHOOK_TOKEN;
+
+    if (!envToken) {
+        console.error('WEBHOOK_TOKEN no está configurado en variables de entorno');
+        return res.status(500).json({ error: 'Configuración del servidor incompleta' });
+    }
+
+    const expectedToken = `Bearer ${envToken}`;
+
     if (!authHeader || authHeader !== expectedToken) {
         return res.status(401).json({ error: 'Token de autenticación inválido' });
     }
