@@ -566,11 +566,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configuración del chat
     const chatConfig = {
-        webhookUrl: 'https://hook.us2.make.com/1wui6r6t9svfnmotkq4544enu466r7uh', // Webhook de Make configurado
+        webhookUrl: 'https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj', // Webhook de Make configurado
         sessionId: generateSessionId(),
         isOpen: false,
         messageCount: 0,
-        typingTimeout: null
+        typingTimeout: null,
+        // Mostrar solo un mensaje automático de fallback por sesión
+        fallbackShown: false,
+        // Tiempo máximo de espera de respuesta de Make (3 minutos)
+        responseTimeoutMs: 180000
     };
     
     // Elementos del chat
@@ -698,7 +702,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Función para enviar mensaje al webhook de Make
-    async function sendMessageToWebhook(message, userInfo = {}) {
+    async function sendMessageToWebhook(message, userInfo = {}, abortSignal) {
         try {
             const payload = {
                 sessionId: chatConfig.sessionId,
@@ -714,7 +718,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(payload),
+                signal: abortSignal
             });
             
             if (!response.ok) {
@@ -841,26 +846,49 @@ document.addEventListener('DOMContentLoaded', function() {
         // Agregar mensaje del usuario
         addMessage(message, true);
         
-        // Mostrar indicador de escritura
+        // Mostrar indicador de escritura mientras esperamos respuesta de Make
         showTypingIndicator();
         
-        // Simular delay de respuesta
-        setTimeout(async () => {
+        // Control para resolver una única vez (respuesta o fallback)
+        let resolved = false;
+        const abortController = new AbortController();
+        
+        // Temporizador de fallback (3 minutos)
+        const fallbackTimer = setTimeout(() => {
+            if (resolved) return;
+            resolved = true;
             hideTypingIndicator();
             
-            // Intentar enviar al webhook primero
-            const webhookResponse = await sendMessageToWebhook(message);
-            
-            let botResponse;
-            if (webhookResponse && webhookResponse.reply) {
-                botResponse = webhookResponse.reply;
-            } else {
-                // Usar respuesta automática si no hay respuesta del webhook
-                botResponse = handleAutoResponse(message);
+            // Mostrar solo un mensaje automático en toda la sesión
+            if (!chatConfig.fallbackShown) {
+                addMessage('En este momento no hay un asesor disponible. Por favor, deja tu nombre, teléfono y correo y te contactaremos a la brevedad.', false);
+                chatConfig.fallbackShown = true;
             }
             
-            addMessage(botResponse, false);
-        }, 1000 + Math.random() * 2000); // Delay aleatorio entre 1-3 segundos
+            // Cancelar solicitud pendiente
+            try { abortController.abort(); } catch (e) { /* ignore */ }
+        }, chatConfig.responseTimeoutMs);
+        
+        try {
+            // Enviar al webhook de Make y esperar respuesta
+            const webhookResponse = await sendMessageToWebhook(message, {}, abortController.signal);
+            
+            if (resolved) return; // Ya se ejecutó el fallback
+            resolved = true;
+            clearTimeout(fallbackTimer);
+            hideTypingIndicator();
+            
+            // Si Make respondió con reply, mostrarlo. No usar respuestas automáticas.
+            if (webhookResponse && webhookResponse.reply) {
+                addMessage(webhookResponse.reply, false);
+                if (webhookResponse.actions) {
+                    executeActions(webhookResponse.actions);
+                }
+            } // Si no hay reply, no enviar mensajes automáticos
+        } catch (error) {
+            // Mantener el indicador hasta que se cumpla el fallback
+            console.log('Error esperando respuesta de Make:', error);
+        }
     }
     
     // Función para manejar acciones rápidas
@@ -924,19 +952,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 30000);
     
-    // Función para integrar con formularios existentes
+    // Función para integrar con formularios existentes (sin mensajes automáticos al chat)
     function integrateWithForms() {
         const quoteForm = document.querySelector('.quote-form');
         if (quoteForm) {
             quoteForm.addEventListener('submit', function(e) {
-                // Agregar mensaje al chat sobre la cotización
-                const formData = new FormData(this);
-                const name = this.querySelector('input[type="text"]').value;
-                const insuranceType = this.querySelector('select').value;
-                
-                if (name && insuranceType) {
-                    addMessage(`Nuevo cliente: ${name} solicitó cotización de ${insuranceType}`, false);
-                }
+                // Intencionalmente no se envían mensajes automáticos al chat desde formularios
             });
         }
     }

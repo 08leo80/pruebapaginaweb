@@ -14,7 +14,8 @@ const MAKE_RESPONSE_CONFIG = {
                 url: 'https://pruebapaginaweb.vercel.app/api/webhook-response',
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer segurospro_webhook_token_2024'
                 }
             },
             

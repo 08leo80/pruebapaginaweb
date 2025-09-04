@@ -18,6 +18,14 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Método no permitido' });
     }
 
+    // Verificar token de autenticación
+    const authHeader = req.headers.authorization;
+    const expectedToken = 'Bearer segurospro_webhook_token_2024';
+    
+    if (!authHeader || authHeader !== expectedToken) {
+        return res.status(401).json({ error: 'Token de autenticación inválido' });
+    }
+
     try {
         // Obtener datos del body
         const { success, reply, sessionId, timestamp, actions, metadata } = req.body;
