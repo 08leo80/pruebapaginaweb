@@ -815,30 +815,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Iniciar polling de respuestas
     // pollForResponses();
     
-    // Función para manejar respuestas automáticas
+    // Deshabilitado: las respuestas las dará Make (solo fallback si no responde)
     function handleAutoResponse(message) {
-        const lowerMessage = message.toLowerCase();
-        
-        // Respuestas automáticas básicas
-        const autoResponses = {
-            'cotizar': '¡Perfecto! Te ayudo con tu cotización. ¿Qué tipo de seguro necesitas? Puedes elegir entre: Auto, Hogar, Vida o Empresarial.',
-            'auto': 'Para tu seguro de auto, necesito algunos datos: ¿Qué modelo y año es tu vehículo? ¿Tienes historial de accidentes?',
-            'hogar': 'Para tu seguro de hogar, ¿es casa propia o rentada? ¿Qué valor aproximado tienen tus pertenencias?',
-            'vida': 'Para tu seguro de vida, ¿qué edad tienes? ¿Tienes dependientes económicos?',
-            'precio': 'Nuestros precios son muy competitivos. Te puedo dar una cotización personalizada. ¿Qué tipo de seguro te interesa?',
-            'contacto': 'Puedes contactarnos al 800-123-4567 o por WhatsApp. También puedes llenar el formulario de cotización en nuestra página.',
-            'horarios': 'Estamos disponibles 24/7 para atenderte. Nuestro equipo de asesores está listo para ayudarte en cualquier momento.',
-            'cobertura': 'Ofrecemos coberturas completas y personalizadas. ¿Qué tipo de protección necesitas específicamente?'
-        };
-        
-        for (const [keyword, response] of Object.entries(autoResponses)) {
-            if (lowerMessage.includes(keyword)) {
-                return response;
-            }
-        }
-        
-        // Respuesta por defecto
-        return 'Gracias por tu mensaje. Un asesor se pondrá en contacto contigo pronto. Mientras tanto, ¿te gustaría que te ayude con una cotización rápida?';
+        return null;
     }
     
     // Función para procesar mensaje del usuario
@@ -870,21 +849,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }, chatConfig.responseTimeoutMs);
         
         try {
-            // Enviar al webhook de Make y esperar respuesta
-            const webhookResponse = await sendMessageToWebhook(message, {}, abortController.signal);
-            
-            if (resolved) return; // Ya se ejecutó el fallback
-            resolved = true;
-            clearTimeout(fallbackTimer);
-            hideTypingIndicator();
-            
-            // Si Make respondió con reply, mostrarlo. No usar respuestas automáticas.
-            if (webhookResponse && webhookResponse.reply) {
-                addMessage(webhookResponse.reply, false);
-                if (webhookResponse.actions) {
-                    executeActions(webhookResponse.actions);
-                }
-            } // Si no hay reply, no enviar mensajes automáticos
+            // Enviar al webhook de Make y NO esperar respuesta inmediata
+            // Make responderá de forma asíncrona (p. ej., vía webhook al backend o JS injection).
+            await sendMessageToWebhook(message, {}, abortController.signal);
+            // Dejamos el indicador de escritura activo hasta que llegue la respuesta del bot
+            // mediante window.receiveMakeResponse, o hasta que dispare el fallback.
         } catch (error) {
             // Mantener el indicador hasta que se cumpla el fallback
             console.log('Error esperando respuesta de Make:', error);
@@ -894,12 +863,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función para manejar acciones rápidas
     function handleQuickAction(action) {
         const actionMessages = {
-            'cotizar': 'Me gustaría cotizar un seguro. ¿Qué tipo necesitas?',
-            'info': 'Quiero más información sobre sus servicios de seguros.',
-            'contacto': 'Necesito hablar con un asesor. ¿Cuáles son sus datos de contacto?'
+            'cotizar': 'Hola',
+            'info': 'Hola',
+            'contacto': 'Hola'
         };
         
-        const message = actionMessages[action] || 'Hola, necesito ayuda.';
+        const message = actionMessages[action] || 'Hola';
         chatInput.value = message;
         processUserMessage(message);
     }
