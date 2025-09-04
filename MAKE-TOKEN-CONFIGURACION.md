@@ -53,7 +53,7 @@ En Make, cuando configures el módulo "HTTP" para enviar la respuesta:
 
 ### **2. Configurar el Webhook de Entrada:**
 ```
-URL: https://hook.us2.make.com/1wui6r6t9svfnmotkq4544enu466r7uh
+URL: https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj
 Method: POST
 Content Type: application/json
 ```

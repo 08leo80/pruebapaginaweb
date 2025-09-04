@@ -26,7 +26,7 @@
 3. **Copiar URL del Webhook:**
    - Haz clic en "Save"
    - Copia la URL del webhook
-   - Pégala en `script.js` en la línea `webhookUrl`
+   - Pégala en `script.js` en la línea `webhookUrl` (usar: https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj)
 
 ### Paso 4: Configurar Procesamiento de Datos
 
@@ -175,7 +175,7 @@ if (userInfo.phone) leadScore += 25;
 
 ### Probar el Webhook
 ```bash
-curl -X POST https://hook.eu1.make.com/tu-webhook-id \
+curl -X POST https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj \
   -H "Content-Type: application/json" \
   -d '{
     "sessionId": "test_session",

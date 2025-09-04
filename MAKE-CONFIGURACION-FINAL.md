@@ -18,7 +18,7 @@ Tu página está desplegada en: **https://pruebapaginaweb.vercel.app**
 3. Añade un trigger "Webhook"
 4. Configura el webhook de entrada:
    ```
-   URL: https://hook.us2.make.com/1wui6r6t9svfnmotkq4544enu466r7uh
+   URL: https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj
    Method: POST
    Content Type: application/json
    ```
@@ -123,7 +123,7 @@ curl "https://pruebapaginaweb.vercel.app/api/check-response?sessionId=test_sessi
 
 ```
 1. Cliente escribe en chat → https://pruebapaginaweb.vercel.app
-2. Chat envía a Make → https://hook.us2.make.com/1wui6r6t9svfnmotkq4544enu466r7uh
+2. Chat envía a Make → https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj
 3. Make procesa el mensaje
 4. Make genera respuesta
 5. Make envía respuesta de vuelta → https://pruebapaginaweb.vercel.app/api/webhook-response

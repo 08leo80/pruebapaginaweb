@@ -16,7 +16,7 @@ Cliente → Chat → Make (Procesamiento) → Respuesta → Chat → Cliente
    - Añade un trigger "Webhook"
 
 2. **Configurar el Webhook de Entrada**
-   - URL: `https://hook.us2.make.com/8fzeeegnvodps7mihtkrct812gmplg14`
+   - URL: `https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj`
    - Método: POST
    - Content Type: application/json
 

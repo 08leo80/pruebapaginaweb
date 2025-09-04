@@ -3,8 +3,8 @@
 
 const CHAT_CONFIG = {
     // ===== CONFIGURACIÓN DE WEBHOOK =====
-    // Reemplaza esta URL con tu webhook de Make
-    webhookUrl: 'TU_WEBHOOK_URL_DE_MAKE_AQUI',
+    // URL del webhook de Make en uso
+    webhookUrl: 'https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj',
     
     // ===== CONFIGURACIÓN DEL CHAT =====
     autoOpenDelay: 30000, // 30 segundos

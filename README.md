@@ -60,11 +60,11 @@ cd PAGINA-WEB
 #### Paso 2: Configurar en el Código
 1. Abre `script.js`
 2. Busca la línea: `webhookUrl: 'TU_WEBHOOK_URL_DE_MAKE_AQUI'`
-3. Reemplaza con tu URL de webhook
+3. Reemplaza con tu URL de webhook (usar: `https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj`)
 
 ```javascript
 const chatConfig = {
-    webhookUrl: 'https://hook.eu1.make.com/tu-webhook-id',
+    webhookUrl: 'https://hook.us2.make.com/ds2d2wpsk2fcbr5jp1h5ym7opkiwo6bj',
     // ... resto de configuración
 };
 ```
